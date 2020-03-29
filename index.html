@@ -48,10 +48,11 @@
     sheetData = data;
     data.forEach((record) => {
       let website = record['Y'];
-      if (record['Y'] != '') {
-        let restaurant = "<a href='" + website + "'>" + record['Restaurant'] + "</a>";
+      let restaurant;
+      if (website != '') {
+        restaurant = "<a href='" + website + "'>" + record['Restaurant'] + "</a>";
       } else {
-        let restaurant = record['Restaurant'];
+        restaurant = record['Restaurant'];
       }
       let phone = record['Phone'];
       let takoutDelivery = record['Takeout/ Delivery'];
