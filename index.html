@@ -10,10 +10,26 @@
   <h3>Asheville Independant Restaurants</h3>
 </body>
 
+<table id="table">
+  <thead>
+    <tr>
+      <th>Date/Time</th>
+      <th>Temperature</th>
+      <th>Humidity</th>
+    </tr>
+  </thead>
+</table>
+
+
+<script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			  crossorigin="anonymous"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 <script type='text/javascript'>
   // var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/18SCQPHXhQF2r5otK_UVTslxi-aIB1JvqVEZjeNePFIY/edit?usp=sharing';
   var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/10myGYMeN0yovKmwoZgam91TgNDc37huzkqOHOxrg_y0/edit?usp=sharing';
+  var sheetData;
 
   function init() {
     Tabletop.init( { key: publicSpreadsheetUrl,
@@ -25,6 +41,9 @@
   function showInfo(data, tabletop) {
     alert('Successfully processed!')
     console.log(data);
+    data.forEach((record) => {
+      $("#table").append("<tr><td></td><td></td><td></td></tr>")
+    })
   }
 
   window.addEventListener('DOMContentLoaded', init)
