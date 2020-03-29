@@ -9,7 +9,7 @@
 <body>
   <h2>Asheville Independant Restaurants</h2>
 
-  <table>
+  <table id="table">
     <thead>
       <tr>
         <th>Restaurant</th>
@@ -21,7 +21,6 @@
         <th>DoorDash</th>
       </tr>
     </thead>
-    <tbody id='#tbody'></tbody>
   </table>
 
 <script
@@ -60,7 +59,7 @@
       let takeoutCentral = record['Takeout Central'];
       let chowNow = record['Chow Now'];
       let doorDash = record['DoorDash'];
-      $("#tbody").append("<tr><td>" + restaurant +
+      $("#table").append("<tr><td>" + restaurant +
                          "</td><td>" + phone +
                          "</td><td>" + takeoutDelivery +
                          "</td><td>" + kickbackAVL +
