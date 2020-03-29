@@ -41,6 +41,7 @@
   function showInfo(data, tabletop) {
     alert('Successfully processed!')
     console.log(data);
+    sheetData = data;
     data.forEach((record) => {
       $("#table").append("<tr><td></td><td></td><td></td></tr>")
     })
