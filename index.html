@@ -7,20 +7,22 @@
   <title>Document</title>
 </head>
 <body>
-  <h3>Asheville Independant Restaurants</h3>
-</body>
+  <h2>Asheville Independant Restaurants</h2>
 
-<table id="table">
-  <thead>
-    <tr>
-      <th>Date/Time</th>
-      <th>Temperature C</th>
-      <th>Temperature F</th>
-      <th>Humidity</th>
-    </tr>
-  </thead>
-</table>
-
+  <table>
+    <thead>
+      <tr>
+        <th>Restaurant</th>
+        <th>Phone #</th>
+        <th>Takeout/Delivery</th>
+        <th>Kickback AVL</th>
+        <th>Takeout Central</th>
+        <th>Chow Now</th>
+        <th>DoorDash</th>
+      </tr>
+    </thead>
+    <tbody id='#tbody'></tbody>
+  </table>
 
 <script
 			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -45,14 +47,31 @@
     console.log(data);
     sheetData = data;
     data.forEach((record) => {
-      let dateTime = record['Date/Time'];
-      let tempF = record['Temperature F'];
-      let tempC = record['Temperature C'];
-      let humid = record['Humidity %'];
-      $("#table").append("<tr><td>" + dateTime + "</td><td>" + tempF + "</td><td>" + tempC + "</td><td>" + humid + "</td></tr>");
+      let website = record['Y'];
+      if (record['Y'] != '') {
+        let restaurant = "<a href='" + website + "'>" + record['Restaurant'] + "</a>";
+      } else {
+        let restaurant = record['Restaurant'];
+      }
+      let phone = record['Phone'];
+      let takoutDelivery = record['Takeout/ Delivery'];
+      let kickbackAVL = record['KickbackAVL'];
+      let takeoutCentral = record['Takeout Central'];
+      let chowNow = record['Chow Now'];
+      let doorDash = record['DoorDash'];
+      $("#tbody").append("<tr><td>" + restaurant +
+                         "</td><td>" + phone +
+                         "</td><td>" + takeoutDelivery +
+                         "</td><td>" + kickbackAVL +
+                         "</td><td>" + takeoutCentral +
+                         "</td><td>" + chowNow +
+                         "</td><td>" + doorDash +
+                         "</td></tr>");
     })
   }
 
   window.addEventListener('DOMContentLoaded', init)
 </script>
+
+</body>
 </html>
